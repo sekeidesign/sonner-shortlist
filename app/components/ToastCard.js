@@ -15,7 +15,7 @@ export default function ToastCard({ item, hasImage, onEvent }) {
         // onEvent(item);
       }}
       className={`bg-white  rounded-md w-64 overflow-hidden cursor-pointer ${
-        hasImage ? 'hover:bg-gray-50' : 'shadow-lg ml-40'
+        hasImage ? 'hover:bg-gray-50' : 'shadow-lg md:ml-40'
       }`}
     >
       <img

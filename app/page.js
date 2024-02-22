@@ -65,7 +65,7 @@ export default function Home() {
           className="bg-gray-900 text-white py-2 px-4 rounded"
           onClick={() => setShowShortlist(true)}
         >
-          View full shortlist {shortlist.length}
+          Shortlist <span className="text-gray-500">{shortlist.length}</span>
         </button>
       </div>
       <div
