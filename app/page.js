@@ -1,22 +1,27 @@
 'use client';
 
-import Image from 'next/image';
 import { Toaster, toast } from 'sonner';
 import { useState } from 'react';
 import { data } from './data';
 import ToastCard from './components/ToastCard';
 import OutsideClickHandler from 'react-outside-click-handler';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [shortlist, setShortlist] = useState([]);
   const [showShortlist, setShowShortlist] = useState(false);
+
+  const deleteItem = (item) => {
+    console.log(shortlist);
+    setShortlist(shortlist.filter((i) => i !== item));
+  };
 
   const addToShortlist = (item) => {
     setShortlist([...shortlist, item]);
     toast.custom(
       (t) => (
         <div>
-          <ToastCard item={item}></ToastCard>
+          <ToastCard item={item} onEvent={deleteItem}></ToastCard>
         </div>
       ),
       {
