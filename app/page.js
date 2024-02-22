@@ -28,8 +28,8 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <Toaster position="bottom-right" offset={80} />
-      <div className="fixed bottom-4 right-32 ">
+      <Toaster position="bottom-center" offset={80} />
+      <div className="fixed bottom-4 mx-auto">
         <button
           className="bg-gray-900 text-white py-2 px-4 rounded"
           onClick={() => setShowShortlist(true)}
