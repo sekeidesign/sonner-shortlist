@@ -35,27 +35,27 @@ export default function Home() {
       <div className="mb-32 grid gap-8 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} hasImage></ToastCard>
+            <ToastCard item={item} isTiny></ToastCard>
           </div>
         ))}
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} hasImage></ToastCard>
+            <ToastCard item={item} isTiny></ToastCard>
           </div>
         ))}
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} hasImage></ToastCard>
+            <ToastCard item={item} isTiny></ToastCard>
           </div>
         ))}
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} hasImage></ToastCard>
+            <ToastCard item={item} isTiny></ToastCard>
           </div>
         ))}
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} hasImage></ToastCard>
+            <ToastCard item={item} isTiny></ToastCard>
           </div>
         ))}
       </div>
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="flex flex-col gap-8 text-center ">
             {shortlist.map((item, index) => (
               <div key={index}>
-                <ToastCard item={item} hasImage></ToastCard>
+                <ToastCard item={item} isTiny></ToastCard>
               </div>
             ))}
           </div>

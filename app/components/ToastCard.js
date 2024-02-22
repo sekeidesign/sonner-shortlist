@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-export default function ToastCard({ item, hasImage, onEvent }) {
+export default function ToastCard({ item, isTiny, onEvent }) {
   let startPosition = 0;
   return (
     <motion.div
@@ -14,20 +14,20 @@ export default function ToastCard({ item, hasImage, onEvent }) {
         info.point.x < startPosition - 400 && console.log('delete');
         // onEvent(item);
       }}
-      className={`bg-white  rounded-md w-64 overflow-hidden cursor-pointer ${
-        hasImage ? 'hover:bg-gray-50' : 'shadow-lg md:ml-40'
+      className={`bg-white  rounded-md mx-auto overflow-hidden cursor-pointer ${
+        isTiny ? 'hover:bg-gray-50 w-64' : 'shadow-lg md:ml-72 w-32'
       }`}
     >
       <img
         src={item.image}
         alt={item.title}
-        className={`w-full h-20 object-cover rounded-t-sm ${
-          hasImage ? '' : 'hidden'
-        }`}
+        className={`w-full object-cover ${isTiny ? 'h-20' : 'h-12'}`}
       />
-      <div className={`${hasImage ? 'p-6' : 'p-3'}`}>
+      <div className={`${isTiny ? 'p-4' : 'p-3'}`}>
         <h2 className="text-sm font-medium">{item.title}</h2>
-        <p className="text-xs mt-2 text-gray-500">{item.description}</p>
+        <p className="text-xs mt-1 text-gray-500 line-clamp-2">
+          {item.description}
+        </p>
       </div>
     </motion.div>
   );
