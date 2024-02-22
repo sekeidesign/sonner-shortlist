@@ -10,7 +10,7 @@ export default function ToastCard({ item, hasImage, onEvent }) {
       dragConstraints={{ left: 0, right: 300 }}
       dragSnapToOrigin
       onDragStart={(_, info) => (startPosition = info.point.x)}
-      onDragEnd={(event, info) => {
+      onDragEnd={(_, info) => {
         info.point.x < startPosition - 400 && console.log('delete');
         // onEvent(item);
       }}
@@ -25,7 +25,7 @@ export default function ToastCard({ item, hasImage, onEvent }) {
           hasImage ? '' : 'hidden'
         }`}
       />
-      <div className="p-6">
+      <div className={`${hasImage ? 'p-6' : 'p-3'}`}>
         <h2 className="text-sm font-medium">{item.title}</h2>
         <p className="text-xs mt-2 text-gray-500">{item.description}</p>
       </div>
