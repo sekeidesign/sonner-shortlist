@@ -4,7 +4,11 @@ import Image from 'next/image';
 
 export default function ToastCard({ item, hasImage }) {
   return (
-    <div className="bg-white rounded-md w-64 overflow-hidden shadow-lg">
+    <div
+      className={`bg-white  rounded-md w-64 overflow-hidden cursor-pointer ${
+        hasImage ? 'hover:bg-gray-50' : 'shadow-lg ml-40'
+      }`}
+    >
       <img
         src={item.image}
         alt={item.title}

@@ -13,11 +13,16 @@ export default function Home() {
 
   const addToShortlist = (item) => {
     setShortlist([...shortlist, item]);
-    toast.custom((t) => (
-      <div>
-        <ToastCard item={item}></ToastCard>
-      </div>
-    ));
+    toast.custom(
+      (t) => (
+        <div>
+          <ToastCard item={item}></ToastCard>
+        </div>
+      ),
+      {
+        duration: 20000,
+      }
+    );
   };
 
   return (
@@ -28,9 +33,29 @@ export default function Home() {
             <ToastCard item={item} hasImage></ToastCard>
           </div>
         ))}
+        {data.map((item, index) => (
+          <div key={index} onClick={() => addToShortlist(item)}>
+            <ToastCard item={item} hasImage></ToastCard>
+          </div>
+        ))}
+        {data.map((item, index) => (
+          <div key={index} onClick={() => addToShortlist(item)}>
+            <ToastCard item={item} hasImage></ToastCard>
+          </div>
+        ))}
+        {data.map((item, index) => (
+          <div key={index} onClick={() => addToShortlist(item)}>
+            <ToastCard item={item} hasImage></ToastCard>
+          </div>
+        ))}
+        {data.map((item, index) => (
+          <div key={index} onClick={() => addToShortlist(item)}>
+            <ToastCard item={item} hasImage></ToastCard>
+          </div>
+        ))}
       </div>
-      <Toaster position="bottom-center" offset={80} />
-      <div className="fixed bottom-4 mx-auto">
+      <Toaster position="bottom-right" visibleToasts={5} offset={80} />
+      <div className="fixed bottom-4 right-4">
         <button
           className="bg-gray-900 text-white py-2 px-4 rounded"
           onClick={() => setShowShortlist(true)}
