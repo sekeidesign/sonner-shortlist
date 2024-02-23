@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       ),
       {
-        duration: 5000,
+        duration: 6000000,
       }
     );
     const newActiveToast = { item: item, toast: newToast };
