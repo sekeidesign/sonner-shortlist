@@ -49,15 +49,19 @@ export default function Home() {
         ))}
       </div>
       <Toaster
-        className={`md:hidden pointer-events-none ${
-          showShortlist ? 'opacity-0' : 'opacity-100'
+        className={`md:hidden pointer-events-none transition-all transform duration-400 ${
+          showShortlist
+            ? 'opacity-0 -translate-x-40'
+            : 'opacity-100 translate-x-0'
         }`}
         position="bottom-left"
         offset={40}
       />
       <Toaster
-        className={`hidden md:flex ${
-          showShortlist ? 'opacity-0' : 'opacity-100'
+        className={`hidden md:flex transition-all transform duration-400 ${
+          showShortlist
+            ? 'opacity-0 -translate-x-40'
+            : 'opacity-100 translate-x-0'
         }`}
         position="bottom-right"
         offset={80}
