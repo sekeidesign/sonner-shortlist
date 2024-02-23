@@ -45,7 +45,6 @@ export default function Home() {
           showShortlist ? 'opacity-0' : 'opacity-100'
         }`}
         position="bottom-left"
-        visibleToasts={5}
         offset={40}
       />
       <Toaster
@@ -53,7 +52,6 @@ export default function Home() {
           showShortlist ? 'opacity-0' : 'opacity-100'
         }`}
         position="bottom-right"
-        visibleToasts={5}
         offset={80}
       />
       <div className="fixed bottom-4 right-4">
