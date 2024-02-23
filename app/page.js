@@ -4,6 +4,7 @@ import { Toaster, toast } from 'sonner';
 import { useState } from 'react';
 import { data } from './data';
 import ToastCard from './components/ToastCard';
+import Card from './components/Card';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { motion } from 'framer-motion';
 
@@ -35,37 +36,33 @@ export default function Home() {
       <div className="mb-32 grid gap-8 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} isTiny></ToastCard>
-          </div>
-        ))}
-        {data.map((item, index) => (
-          <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} isTiny></ToastCard>
-          </div>
-        ))}
-        {data.map((item, index) => (
-          <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} isTiny></ToastCard>
-          </div>
-        ))}
-        {data.map((item, index) => (
-          <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} isTiny></ToastCard>
-          </div>
-        ))}
-        {data.map((item, index) => (
-          <div key={index} onClick={() => addToShortlist(item)}>
-            <ToastCard item={item} isTiny></ToastCard>
+            <Card item={item} isTiny></Card>
           </div>
         ))}
       </div>
-      <Toaster position="bottom-right" visibleToasts={5} offset={80} />
+      <Toaster
+        className={`md:hidden ${showShortlist ? 'opacity-0' : 'opacity-100'}`}
+        position="bottom-left"
+        visibleToasts={5}
+        offset={80}
+      />
+      <Toaster
+        className={`hidden md:flex ${
+          showShortlist ? 'opacity-0' : 'opacity-100'
+        }`}
+        position="bottom-right"
+        visibleToasts={5}
+        offset={80}
+      />
       <div className="fixed bottom-4 right-4">
         <button
-          className="bg-gray-900 text-white py-2 px-4 rounded"
+          className={`${
+            shortlist.length < 1 ? 'bg-gray-400' : 'bg-gray-950'
+          } text-white py-2 px-4 rounded`}
           onClick={() => setShowShortlist(true)}
         >
-          Shortlist <span className="text-gray-500">{shortlist.length}</span>
+          Shortlist{' '}
+          <span className="text-gray-50 opacity-50">{shortlist.length}</span>
         </button>
       </div>
       <div
@@ -82,7 +79,7 @@ export default function Home() {
           <div className="flex flex-col gap-8 text-center ">
             {shortlist.map((item, index) => (
               <div key={index}>
-                <ToastCard item={item} isTiny></ToastCard>
+                <Card item={item} isTiny></Card>
               </div>
             ))}
           </div>

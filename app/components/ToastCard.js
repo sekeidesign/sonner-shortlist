@@ -4,9 +4,13 @@ import { motion } from 'framer-motion';
 
 export default function ToastCard({ item, isTiny, onEvent }) {
   let startPosition = 0;
+  const angleRange = 5;
+  const randomAngle = Math.round(Math.random() * (angleRange * 2)) - angleRange;
   return (
     <motion.div
       drag="x"
+      animate={{ rotateZ: [0, randomAngle] }}
+      transition={{ delay: 0.1, duration: 0.3 }}
       dragConstraints={{ left: 0, right: 300 }}
       dragSnapToOrigin
       onDragStart={(_, info) => (startPosition = info.point.x)}
@@ -15,7 +19,7 @@ export default function ToastCard({ item, isTiny, onEvent }) {
         // onEvent(item);
       }}
       className={`bg-white  rounded-md mx-auto overflow-hidden cursor-pointer ${
-        isTiny ? 'hover:bg-gray-50 w-64' : 'shadow-lg md:ml-72 w-32'
+        isTiny ? 'hover:bg-gray-50 w-64' : 'shadow-lg mr-64 md:ml-72 w-32'
       }`}
     >
       <img
