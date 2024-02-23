@@ -10,7 +10,7 @@ export default function ToastCard({ item, isTiny, onEvent }) {
       <img
         src={item.image}
         alt={item.title}
-        className={`w-full object-cover h-12`}
+        className={`w-full object-cover h-32`}
       />
       <div className={`${isTiny ? 'p-4' : 'p-3'}`}>
         <h2 className="text-sm font-medium">{item.title}</h2>

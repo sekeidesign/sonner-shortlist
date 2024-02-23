@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-8">
       <div className="mb-32 grid gap-8 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {data.map((item, index) => (
           <div key={index} onClick={() => addToShortlist(item)}>
@@ -68,7 +68,7 @@ export default function Home() {
         </button>
       </div>
       <div
-        className={`fixed top-0 right-0 shadow-2xl h-full p-12 transform transition-transform duration-500 bg-white ${
+        className={`fixed top-0 right-0 shadow-2xl h-full max-w-[75vw] p-4 md:p-8 transform transition-transform duration-500 bg-white ${
           showShortlist ? 'translate-x-0' : ' translate-x-full'
         }`}
       >
