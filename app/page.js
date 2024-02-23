@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       ),
       {
-        duration: 20000,
+        duration: 5000,
       }
     );
     const newActiveToast = { item: item, toast: newToast };
@@ -32,6 +32,7 @@ export default function Home() {
     setShortlist(shortlist.filter((i) => i !== item));
     const relatedToast = activeToasts.find((i) => i.item === item).toast;
     toast.dismiss(relatedToast);
+    setActiveToasts(activeToasts.filter((i) => i.item !== item));
   };
 
   const toggleItem = (item) => {
