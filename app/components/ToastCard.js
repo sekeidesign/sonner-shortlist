@@ -19,7 +19,7 @@ export default function ToastCard({ item, isTiny, onEvent }) {
         // onEvent(item);
       }}
       className={`bg-white  rounded-md mx-auto overflow-hidden cursor-pointer ${
-        isTiny ? 'hover:bg-gray-50 w-64' : 'shadow-lg mr-64 md:ml-72 w-32'
+        isTiny ? 'hover:bg-gray-50 w-64' : 'shadow-lg mr-56 md:ml-72 w-32'
       }`}
     >
       <img

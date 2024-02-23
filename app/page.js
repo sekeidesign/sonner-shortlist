@@ -41,10 +41,12 @@ export default function Home() {
         ))}
       </div>
       <Toaster
-        className={`md:hidden ${showShortlist ? 'opacity-0' : 'opacity-100'}`}
+        className={`md:hidden pointer-events-none ${
+          showShortlist ? 'opacity-0' : 'opacity-100'
+        }`}
         position="bottom-left"
         visibleToasts={5}
-        offset={80}
+        offset={40}
       />
       <Toaster
         className={`hidden md:flex ${
