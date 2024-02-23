@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function ToastCard({ item, isTiny, onEvent }) {
   let startPosition = 0;
-  const angleRange = 5;
+  const angleRange = 12;
   const randomAngle = Math.round(Math.random() * (angleRange * 2)) - angleRange;
   return (
     <motion.div

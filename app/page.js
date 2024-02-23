@@ -60,6 +60,7 @@ export default function Home() {
         }`}
         position="bottom-right"
         offset={80}
+        gap={-8}
       />
       <div className="fixed bottom-4 right-4">
         <button

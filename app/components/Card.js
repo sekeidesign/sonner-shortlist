@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 export default function ToastCard({ item, isActive }) {
   return (
     <div
-      className={`bg-white rounded-md mx-auto border border-gray-100 overflow-hidden cursor-pointer hover:bg-gray-100 hover:border-gray-200 w-full ${
+      className={`bg-white rounded-md mx-auto border  overflow-hidden cursor-pointer w-full ${
         isActive
-          ? 'border-blue-400 outline outline-blue-600 outline-offset-1 hover:border-blue-300 hover:outline-none hover:bg-white'
-          : ''
+          ? 'border-blue-400 outline outline-blue-600 outline-offset-1 hover:outline-red-500 hover:border-red-400 hover:bg-gray-200'
+          : 'border-gray-100 hover:bg-gray-100 hover:border-gray-200'
       }`}
     >
       <img
