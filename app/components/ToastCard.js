@@ -18,7 +18,7 @@ export default function ToastCard({ item, isTiny, onEvent }) {
         info.point.x < startPosition - 400 && console.log('delete');
         // onEvent(item);
       }}
-      className={`bg-white  rounded-md mx-auto overflow-hidden cursor-pointer ${
+      className={`bg-white  rounded-md mx-auto overflow-hidden ${
         isTiny ? 'hover:bg-gray-50 w-64' : 'shadow-lg mr-56 md:ml-72 w-32'
       }`}
     >
