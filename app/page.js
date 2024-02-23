@@ -11,32 +11,39 @@ import { motion } from 'framer-motion';
 export default function Home() {
   const [shortlist, setShortlist] = useState([]);
   const [showShortlist, setShowShortlist] = useState(false);
-
-  const deleteItem = (item) => {
-    console.log(shortlist);
-    setShortlist(shortlist.filter((i) => i !== item));
-  };
+  const [activeToasts, setActiveToasts] = useState([]);
 
   const addToShortlist = (item) => {
     setShortlist([...shortlist, item]);
-    toast.custom(
+    const newToast = toast.custom(
       (t) => (
         <div>
-          <ToastCard item={item} onEvent={deleteItem}></ToastCard>
+          <ToastCard item={item}></ToastCard>
         </div>
       ),
       {
         duration: 20000,
       }
     );
+    const newActiveToast = { item: item, toast: newToast };
+    setActiveToasts([...activeToasts, newActiveToast]);
+  };
+  const removeFromShortlist = (item) => {
+    setShortlist(shortlist.filter((i) => i !== item));
+    const relatedToast = activeToasts.find((i) => i.item === item).toast;
+    toast.dismiss(relatedToast);
+  };
+
+  const toggleItem = (item) => {
+    shortlist.includes(item) ? removeFromShortlist(item) : addToShortlist(item);
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-8">
-      <div className="mb-32 grid gap-8 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+    <main className="flex min-h-screen flex-col items-center bg-gray-50 justify-between p-8">
+      <div className="mb-32 grid gap-4 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {data.map((item, index) => (
-          <div key={index} onClick={() => addToShortlist(item)}>
-            <Card item={item} isTiny></Card>
+          <div key={index} onClick={() => toggleItem(item)}>
+            <Card item={item} isActive={shortlist.includes(item)}></Card>
           </div>
         ))}
       </div>
